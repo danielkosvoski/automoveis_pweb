@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cliente_id',
     ];
 
     /**
@@ -41,5 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'cliente_id' => 'integer',
     ];
+
+    public function cliente()
+    {
+        return $this->hasOne(Cliente::class);
+    }
+
 }

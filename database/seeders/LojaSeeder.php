@@ -15,7 +15,7 @@ class LojaSeeder extends Seeder
     {
         Loja::factory()->count(1)->sequence(
             ['nome' => 'Vendedor Particular', 'cnpj' => '123456789', 'email' => 'email@email.com', 'contato' => '499888888' ]
-            
+
         )->create();
     }
 }

@@ -1,32 +1,33 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutomovelController;
 use App\Http\Controllers\MotoController;
 use App\Http\Controllers\LojaController;
+use App\Http\Controllers\ClienteController;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
-/*
-//routes/web.php
-Route::get('/aluno', [AlunoController::class, "index"]);
-//carrega o formulário
-Route::get('/aluno/create', [AlunoController::class, "create"]);
-//recebe os dados do formulario para ser salvo na função store
-Route::post('/aluno', [AlunoController::class, "store"])->name('aluno.store');
-//Route::get('/aluno/destroy/{$id}', [AlunoController::class, "destroy"])->name('aluno.destroy');
-Route::delete('/aluno/{$aluno}',
- [AlunoController::class, "destroy"])->name('aluno.destroy');
 
- Route::get('/aluno/edit/{id}', [AlunoController::class, "edit"])
-    ->name('aluno.edit');
- Route::post('/aluno',
-  [AlunoController::class, "update"])->name('aluno.update');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-  Route::resource('aluno', AlunoController::class);
-Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
-*/
+Route::middleware('auth')->group(function () {
 
 
 
@@ -39,4 +40,14 @@ Route::post('/moto/search', [MotoController::class, "search"])->name('moto.searc
 Route::resource('loja', LojaController::class);
 Route::post('/loja/search', [LojaController::class, "search"])->name('loja.search');
 
+Route::resource('cliente', ClienteController::class);
+Route::post('/cliente/search', [ClienteController::class, "search"])->name('cliente.search');
 
+
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

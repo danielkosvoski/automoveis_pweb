@@ -238,6 +238,7 @@ class AutomovelController extends Controller
 
     public function search(Request $request)
     {
+        //dd($request->modelo);
         if (!empty($request->modelo)) {
             $dados = Automovel::where(
                 "modelo",

@@ -40,7 +40,7 @@
           <dt class="font-large text-red-700">Combustivel</dt>
           <dd class="mt-2 text-sm text-gray-500">{{ $dado->combustivel }}<br><br>Combustível é uma substância que reage com o oxigênio liberando energia, usualmente de modo vigoroso, na forma de calor, chamas e gases. Supõe a liberação da energia nele contida em forma de energia potencial a uma forma utilizável.</dd>
         </div>
-        
+
         <div class="border-t border-gray-200 pt-4">
           <dt class="font-large text-red-700">Cambio</dt>
           <dd class="mt-2 text-sm text-gray-500">{{ $dado->cambio }}<br><br>O câmbio, que também atende pelo termo transmissão, é um componente mecânico utilizado pelos veículos motorizados para transmitir a força produzida pelo motor às rodas.</dd>
@@ -51,7 +51,7 @@
         </div>
       </dl>
     </div>
-    
+
     <div class="  lg:mt-0 lg:w-full lg:max-w-lgg lg:flex-shrink-0 grid ">
         <div class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
           <div class="mx-auto max-w-xs px-8">
@@ -60,19 +60,19 @@
               <span class="text-5xl font-bold tracking-tight text-gray-900">R${{ $dado->valor }},00</span>
               <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">BRL</span>
             </p>
-            <a href="{{ url('automovel') }}" class="mt-10 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Comprar Agora</a>
+            <a href="{{ url('/cliente.create') }}" class="mt-10 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Comprar Agora</a>
             <p class="mt-6 text-xs leading-5 text-gray-600">Todas as suas transações são protegidas com cryptografia de ponta.<br> Todos os direitos reservados JaguncoLTDA</p>
           </div>
         </div>
       </div>
-    
 
 
-   
+
+
 
   </div>
 
- 
+
 </div>
 
 
