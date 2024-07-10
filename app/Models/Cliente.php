@@ -16,7 +16,8 @@ class Cliente extends Model
     "nome",
     "cpf",
     "endereco",
-    "contato"
+    "contato",
+    "user_id"
     ];
 
     public function user()

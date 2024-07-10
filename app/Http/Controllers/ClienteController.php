@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -31,34 +32,39 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
+      // dd(auth()->id());
 
         $request->validate([
             "nome" => "required|max:100",
             "cpf"=> "required",
             "endereco"=> "required",
             "contato"=> "required",
-            "cliente_id"=> "required",
+        //    "user_id"=> "required",
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
             'cpf.required' => "O :attribute é obrigatório",
             'endereco.required' => "O :attribute é obrigatório",
             'contato.required' => "O :attribute é obrigatório",
-            'cliente_id.required' => "O :attribute é obrigatório",
+         //   'user_id.required' => "O :attribute é obrigatório",
         ]);
 
-        Cliente::create(
+      $cliente =  Cliente::create(
             [
                 'nome' => $request->nome,
                 'cpf' => $request->cpf,
                 'endereco' => $request->endereco,
                 'contato' => $request->contato,
-                'cliente_id' => $request->cliente_id,
-
-
+                'user_id' =>auth()->id(),
             ]
         );
+
+        $user = User::find(auth()->id());
+        $user->cliente_id = auth()->id();
+        $user->update();
+
+        //dd( $cliente );
+
         return redirect('cliente');
     }
 
@@ -98,7 +104,7 @@ class ClienteController extends Controller
             "cpf"=> "required",
             "endereco"=> "required",
             "contato"=> "required",
-            "cliente_id"=> "required",
+         //   "user_id"=> "required",
 
 
         ], [
@@ -107,11 +113,7 @@ class ClienteController extends Controller
             'cpf.required' => "O :attribute é obrigatório",
             'endereco.required' => "O :attribute é obrigatório",
             'contato.required' => "O :attribute é obrigatório",
-            'cliente_id.required' => "O :attribute é obrigatório",
-
-
-
-
+         //   'user_id.required' => "O :attribute é obrigatório",
         ]);
 
         Cliente::updateOrCreate(
@@ -120,11 +122,14 @@ class ClienteController extends Controller
                 'cpf' => $request->cpf,
                 'endereco' => $request->endereco,
                 'contato' => $request->contato,
-                'cliente_id' => $request->cliente_id,
-
-
+                'user_id' =>auth()->id(),
             ]
         );
+
+        $user = User::find(auth()->id());
+        $user->cliente_id = auth()->id();
+        $user->update();
+
         return redirect('cliente');
     }
 
