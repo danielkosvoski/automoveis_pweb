@@ -76,6 +76,13 @@
         @endforeach
     </select><br>
 
+    <label for="">Financiamento</label><br>
+    <select name="financiamento_id" class="form-select">
+        @foreach ($financiamentos as $item)
+            <option value="{{ $item->id }}">{{ $item->nome }}</option>
+        @endforeach
+    </select><br>
+
     @php
         $nome_imagem = !empty($dado->imagem) ? $dado->imagem : 'sem_imagem.jpg';
     @endphp

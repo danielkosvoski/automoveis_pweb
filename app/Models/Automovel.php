@@ -22,13 +22,21 @@ class Automovel extends Model
         "valor",
         "cidade",
         "loja_id",
+        "financiamento_id",
         "imagem",
     ];
 
     protected $casts = [
+        'financiamento_id' => 'integer',
         'marca_id' => 'integer',
         'loja_id' => 'integer'
     ];
+
+    public function financiamentos()
+    {
+        return $this->belongsToMany(Financiamento::class, 'financiamento_id');
+    }
+
 
     public function marca()
     {

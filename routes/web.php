@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Financiamento;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutomovelController;
 use App\Http\Controllers\MotoController;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FinanciamentoController;
 
 
 /*
@@ -39,6 +41,9 @@ Route::post('/moto/search', [MotoController::class, "search"])->name('moto.searc
 
 Route::resource('loja', LojaController::class);
 Route::post('/loja/search', [LojaController::class, "search"])->name('loja.search');
+
+Route::resource('Financiamento', FinanciamentoController::class);
+Route::post('/finaciamento/search', [FinanciamentoController::class, "search"])->name('financiamento.search');
 
 Route::resource('cliente', ClienteController::class);
 Route::post('/cliente/search', [ClienteController::class, "search"])->name('cliente.search');

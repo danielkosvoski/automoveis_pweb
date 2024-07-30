@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Automovel;
 use App\Models\Marca;
+use App\Models\Financiamento;
 use App\Models\Loja;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -31,9 +32,10 @@ class AutomovelController extends Controller
     {
         $marcas = Marca::all();
         $lojas = Loja::all();
+        $financiamentos = Financiamento::all();
 
 
-        return view("automovel.form", ['marcas' => $marcas, 'lojas' => $lojas]);
+        return view("automovel.form", ['marcas' => $marcas, 'lojas' => $lojas, 'lojas' => $lojas, 'financiamentos' => $financiamentos]);
     }
 
     /**
@@ -104,6 +106,7 @@ class AutomovelController extends Controller
                 'valor' => $request->valor,
                 'cidade' => $request->cidade,
                 'loja_id' => $request->loja_id,
+                'financiamento_id' => $request->financiamento_id,
                 'imagem' => $fileNameToStore,
             ]
         );
@@ -119,6 +122,7 @@ class AutomovelController extends Controller
 
         $marcas = Marca::all();
         $lojas = Loja::all();
+        $financiamentos = Financiamento::all();
 
 
 
@@ -126,6 +130,7 @@ class AutomovelController extends Controller
             'dado' => $dado,
             'marcas' => $marcas,
             'lojas' => $lojas,
+            'financiamentos' => $financiamentos,
 
         ]);
     }
@@ -139,6 +144,7 @@ class AutomovelController extends Controller
 
         $marcas = Marca::all();
         $lojas = Loja::all();
+        $financiamentos = Financiamento::all();
 
 
 
@@ -146,6 +152,8 @@ class AutomovelController extends Controller
             'dado' => $dado,
             'marcas' => $marcas,
             'lojas' => $lojas,
+            'financiamentos' => $financiamentos,
+
 
         ]);
     }
@@ -218,6 +226,7 @@ class AutomovelController extends Controller
                 'valor' => $request->valor,
                 'cidade' => $request->cidade,
                 'loja_id' => $request->loja_id,
+                'financiamento_id' => $request->financiamento_id,
                 'imagem' => $fileNameToStore,
             ]
         );
