@@ -27,6 +27,6 @@ class Loja extends Model
 
     public function automovel(){
 
-        return $this->belongsTo(Automovel::class, 'automovel_id');
+        return $this->hasMany(Automovel::class, 'automovel_id');
     }
 }

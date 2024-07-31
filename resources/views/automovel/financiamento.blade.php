@@ -60,8 +60,8 @@
               <span class="text-5xl font-bold tracking-tight text-gray-900">R${{ $dado->valor }},00</span>
               <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">BRL</span>
             </p>
-            <a href="{{ route('automovel.show', $dado->id) }}" class="mt-10 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Comprar Agora</a>
-            <a href="{{ route('automovel.show', $dado->id) }}" class="mt-2 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Opções de Financiamento</a>
+            <a href="{{ url('/cliente.create') }}" class="mt-10 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Comprar Agora</a>
+            <a href="{{ url('/automovel.financia') }}" class="mt-2 block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Opções de Financiamento</a>
             <p class="mt-6 text-xs leading-5 text-gray-600">Todas as suas transações são protegidas com cryptografia de ponta.<br> Todos os direitos reservados JaguncoLTDA</p>
           </div>
         </div>

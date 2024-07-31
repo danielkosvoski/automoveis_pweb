@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Automovel;
 use App\Models\Marca;
-use App\Models\Financiamento;
 use App\Models\Loja;
+use App\Models\Automovel_Financiamento;
+use App\Models\Financiamento;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -35,7 +36,7 @@ class AutomovelController extends Controller
         $financiamentos = Financiamento::all();
 
 
-        return view("automovel.form", ['marcas' => $marcas, 'lojas' => $lojas, 'lojas' => $lojas, 'financiamentos' => $financiamentos]);
+        return view("automovel.form", ['marcas' => $marcas, 'lojas' => $lojas, 'financiamentos' => $financiamentos]);
     }
 
     /**
@@ -94,7 +95,7 @@ class AutomovelController extends Controller
             $fileNameToStore = '';
         }
 
-        Automovel::create(
+     $automovel = Automovel::create(
             [
                 'modelo' => $request->modelo,
                 'marca_id' => $request->marca_id,
@@ -106,10 +107,22 @@ class AutomovelController extends Controller
                 'valor' => $request->valor,
                 'cidade' => $request->cidade,
                 'loja_id' => $request->loja_id,
-                'financiamento_id' => $request->financiamento_id,
                 'imagem' => $fileNameToStore,
             ]
         );
+
+
+
+        foreach($request->financiamento_id as $item){
+            Automovel_Financiamento::create(
+                [
+                    'financiamento_id' => $item,
+                    'automovel_id' => $automovel->id,
+                ]
+                );
+
+        }
+
         return redirect('automovel');
     }
 
@@ -122,7 +135,6 @@ class AutomovelController extends Controller
 
         $marcas = Marca::all();
         $lojas = Loja::all();
-        $financiamentos = Financiamento::all();
 
 
 
@@ -130,7 +142,24 @@ class AutomovelController extends Controller
             'dado' => $dado,
             'marcas' => $marcas,
             'lojas' => $lojas,
-            'financiamentos' => $financiamentos,
+
+        ]);
+    }
+
+
+    public function show_2(string $id)
+    {
+        $dado = Automovel::findOrFail($id);
+
+        $marcas = Marca::all();
+        $lojas = Loja::all();
+
+
+
+        return view("automovel.financiamento", [
+            'dado' => $dado,
+            'marcas' => $marcas,
+            'lojas' => $lojas,
 
         ]);
     }
@@ -144,7 +173,6 @@ class AutomovelController extends Controller
 
         $marcas = Marca::all();
         $lojas = Loja::all();
-        $financiamentos = Financiamento::all();
 
 
 
@@ -152,8 +180,6 @@ class AutomovelController extends Controller
             'dado' => $dado,
             'marcas' => $marcas,
             'lojas' => $lojas,
-            'financiamentos' => $financiamentos,
-
 
         ]);
     }
@@ -226,7 +252,6 @@ class AutomovelController extends Controller
                 'valor' => $request->valor,
                 'cidade' => $request->cidade,
                 'loja_id' => $request->loja_id,
-                'financiamento_id' => $request->financiamento_id,
                 'imagem' => $fileNameToStore,
             ]
         );
@@ -247,7 +272,6 @@ class AutomovelController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request->modelo);
         if (!empty($request->modelo)) {
             $dados = Automovel::where(
                 "modelo",

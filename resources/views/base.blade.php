@@ -54,6 +54,7 @@
             <a href="{{url("moto/create")}}" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium no-underline">Vender Moto</a>
             <a href="{{url("loja")}}" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium no-underline">Lojas Parceiras</a>
             <a href="{{url("loja/create")}}" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium no-underline">Adicionar Loja</a>
+            <a href="{{url("cliente/create")}}" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium no-underline">Finalizar Cadastro</a>
           </div>
         </div>
       </div>

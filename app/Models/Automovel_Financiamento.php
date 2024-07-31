@@ -5,19 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Financiamento extends Model
+class Automovel_Financiamento extends Model
 {
     use HasFactory;
 
-    protected $table = "financiamentos";
+    protected $table = "automovel_financiamento";
     //app/Models/
     protected $fillable = [
-        "nome",
-        "taxa",
-
+        "financiamento_id",
+        "automovel_id",
     ];
-
-    public function automoveis(){
-        return $this->belongsToMany(Automovel::class);
-    }
+    
 }

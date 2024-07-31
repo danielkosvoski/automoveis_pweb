@@ -8,6 +8,8 @@ use App\Http\Controllers\MotoController;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FinanciamentoController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -53,6 +55,11 @@ Route::post('/cliente/search', [ClienteController::class, "search"])->name('clie
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('generate-user-pdf', [PDFController::class, 'generateUserPDF']);
+    Route::get('generate-automovel-pdf', [PDFController::class, 'generateAutomovelPDF']);
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });
 
 require __DIR__.'/auth.php';

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Financiamento;
+use App\Models\Automovel;
+
 use Illuminate\Http\Request;
 
 class FinanciamentoController extends Controller
@@ -67,7 +69,7 @@ class FinanciamentoController extends Controller
      */
     public function show(Financiamento $financiamento)
     {
-        //
+
     }
 
     /**

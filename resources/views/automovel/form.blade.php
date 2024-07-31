@@ -77,7 +77,7 @@
     </select><br>
 
     <label for="">Financiamento</label><br>
-    <select name="financiamento_id" class="form-select">
+    <select name="financiamento_id[]" class="form-select" multiple aria-label="multiple">
         @foreach ($financiamentos as $item)
             <option value="{{ $item->id }}">{{ $item->nome }}</option>
         @endforeach
