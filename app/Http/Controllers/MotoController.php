@@ -68,7 +68,7 @@ class MotoController extends Controller
             'cidade.max' => "Só é permitido 100 caracteres",
 
         ]);
-        
+
 
         if ($request->hasFile('imagem')) {
             // Get filename with the extension
@@ -109,13 +109,13 @@ class MotoController extends Controller
         $dado = Moto::findOrFail($id);
 
         $marcas = Marca::all();
-       
+
 
 
         return view("moto.modelo", [
             'dado' => $dado,
             'marcas'=> $marcas,
-           
+
         ]);
     }
 
@@ -217,6 +217,8 @@ class MotoController extends Controller
 
     public function search(Request $request)
     {
+
+
         if (!empty($request->modelo)) {
             $dados = Moto::where(
                 "modelo",

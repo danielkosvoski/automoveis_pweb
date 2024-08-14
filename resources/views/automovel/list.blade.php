@@ -23,6 +23,7 @@
 
             <button type="submit" class=" w-1/2 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('automovel/create') }}" class=" w-3/4 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"><i class="fa-solid fa-plus"></i> Novo</a>
+            <a href="{{ url('generate-automovel-pdf') }}" class=" w-3/4 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"></i>PDF</a>
         </div>
     </div>
 </form>

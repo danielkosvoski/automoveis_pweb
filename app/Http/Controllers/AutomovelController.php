@@ -146,6 +146,25 @@ class AutomovelController extends Controller
         ]);
     }
 
+    public function financiamento(string $id)
+    {
+        $dado = Automovel::findOrFail($id);
+
+        $fin = Financiamento::All();
+
+        $marcas = Marca::all();
+        $lojas = Loja::all();
+
+
+
+        return view("automovel.financiamento", [
+            'dado' => $dado,
+            'marcas' => $marcas,
+            'lojas' => $lojas,
+
+        ]);
+    }
+
 
     public function show_2(string $id)
     {

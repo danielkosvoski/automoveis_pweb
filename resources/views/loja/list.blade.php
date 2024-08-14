@@ -1,6 +1,6 @@
 @extends('base')
 @section('conteudo')
-@section('titulo', 'Listagem de Automoveis')
+@section('titulo', 'Listagem de Lojas')
 
 
 <div class="bg-stone-100 rounded-md">
@@ -19,10 +19,10 @@
         </div>
         <div class="col-4" style="margin-top: 22px;">
 
-      
+
 
             <button type="submit" class=" w-1/2 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-            <a href="{{ url('automovel/create') }}" class=" w-3/4 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"><i class="fa-solid fa-plus"></i> Novo</a>
+            <a href="{{ url('loja/create') }}" class=" w-3/4 rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline"><i class="fa-solid fa-plus"></i> Novo</a>
         </div>
     </div>
 </form>
@@ -56,7 +56,7 @@
                 <th scope="col" class="px-6 py-3">
                     contato
                 </th>
-               
+
                 <th scope="col" class="px-6 py-3">
                     Editar
                 </th>
@@ -72,12 +72,12 @@
         @foreach ($dados as $item)
 
             <tr class="bg-white border-b dark:bg-gray-500 dark:border-gray-700">
-                
+
                 <td class="px-6 py-4">
                 {{ $item->id }}
                 </td>
 
-                
+
 
                 <td class="px-6 py-4">
                 {{ $item->nome ?? '' }}
@@ -95,9 +95,9 @@
                 {{ $item->contato }}
                 </td>
 
-               
+
                 <td class="px-6 py-4">
-                <a href="{{ route('automovel.edit', $item->id) }} "class=" block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Editar</a> 
+                <a href="{{ route('automovel.edit', $item->id) }} "class=" block w-full rounded-md bg-red-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 no-underline">Editar</a>
                 </td>
                 <td class="px-6 py-4">
                 <form action="{{ route('automovel.destroy', $item) }}" method="post">

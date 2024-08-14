@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('automovel', AutomovelController::class);
 Route::post('/automovel/search', [AutomovelController::class, "search"])->name('automovel.search');
+Route::get('/automovel/financiamento/{id}', [AutomovelController::class, "financiamento"])->name('automovel.financiamento');
+
 
 Route::resource('moto', MotoController::class);
 Route::post('/moto/search', [MotoController::class, "search"])->name('moto.search');
@@ -56,7 +58,7 @@ Route::post('/cliente/search', [ClienteController::class, "search"])->name('clie
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('generate-user-pdf', [PDFController::class, 'generateUserPDF']);
+    Route::get('generate-modelo-pdf', [PDFController::class, 'generateModeloPDF']);
     Route::get('generate-automovel-pdf', [PDFController::class, 'generateAutomovelPDF']);
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
