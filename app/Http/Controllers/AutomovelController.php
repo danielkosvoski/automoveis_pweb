@@ -150,7 +150,7 @@ class AutomovelController extends Controller
     {
         $dado = Automovel::findOrFail($id);
 
-        $fin = Financiamento::All();
+        $financiamentos = Financiamento::All();
 
         $marcas = Marca::all();
         $lojas = Loja::all();
@@ -163,25 +163,13 @@ class AutomovelController extends Controller
             'lojas' => $lojas,
 
         ]);
+
+
+
+
     }
 
 
-    public function show_2(string $id)
-    {
-        $dado = Automovel::findOrFail($id);
-
-        $marcas = Marca::all();
-        $lojas = Loja::all();
-
-
-
-        return view("automovel.financiamento", [
-            'dado' => $dado,
-            'marcas' => $marcas,
-            'lojas' => $lojas,
-
-        ]);
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -13,12 +13,12 @@ class FinanciamentoSeeder extends Seeder
      */
     public function run(): void
     {
-        Financiamento::factory()->count(5)->sequence(
+        Financiamento::factory()->count(4)->sequence(
             ['nome' => 'Santander', 'taxa' => '12'],
             ['nome' => 'Nubank', 'taxa' => '30'],
             ['nome' => 'Itau', 'taxa' => '9'],
             ['nome' => 'Bradesco', 'taxa' => '13'],
-            ['nome' => 'PagBank', 'taxa' => '10'],
+
         )->create();
     }
 }
